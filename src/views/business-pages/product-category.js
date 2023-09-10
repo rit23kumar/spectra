@@ -1,65 +1,46 @@
-import React, { useState, useRef, useEffect, useMemo, useCallback} from 'react';
-import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
+import React, { useState, useRef, useEffect } from "react";
+import { AgGridReact } from "ag-grid-react";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
-import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
-import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
+import { API_URL } from "../../utilities/constants";
+import AddModal from "../business-components/add-modal";
+import { MdCategory } from 'react-icons/md';
+import columnDefs from './../table-header/prod-cat-table.json';
+import addCategoryFields from './../field-defs/product-category.json';
+import { Button } from "react-bootstrap";
 
 const ProductCategory = () => {
-
   const gridRef = useRef(); // Optional - for accessing Grid's API
   const [rowData, setRowData] = useState(); // Set rowData to Array of Objects, one Object per Row
 
-  // Each Column Definition results in one Column.
-  const [columnDefs, setColumnDefs] = useState([
-    {field: 'make', filter: true},
-    {field: 'model', filter: true},
-    {field: 'price'}
-  ]);
-
-  // DefaultColDef sets props common to all Columns
-  const defaultColDef = useMemo( ()=> ({
-      sortable: true
-    }));
-
-  // Example of consuming Grid Event
-  const cellClickedListener = useCallback( event => {
-    console.log('cellClicked', event);
-  }, []);
-
-  // Example load data from server
   useEffect(() => {
-    fetch('https://www.ag-grid.com/example-assets/row-data.json')
-    .then(result => result.json())
-    .then(rowData => setRowData(rowData))
+    fetch(API_URL + "categories")
+      .then((result) => result.json())
+      .then((rowData) => setRowData(rowData));
   }, []);
 
-  // Example using Grid's API
-  const buttonListener = useCallback( e => {
-    gridRef.current.api.deselectAll();
-  }, []);
+  const refreshGrid = () =>{
+    fetch(API_URL + "categories")
+      .then((result) => result.json())
+      .then((rowData) => setRowData(rowData));
+  }
 
   return (
     <div>
-
-      {/* Example using Grid's API 
-      <button onClick={buttonListener}>Push Me</button> */}
-
-      {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
-      <div className="ag-theme-alpine" style={{width: '90%', height: '70vh'}}>
-
+      <div id="page-header" style={{'fontSize':'15px', color: 'var(--bs-white)' }}><MdCategory /> Product {'>'} Category</div>
+      <hr />
+      <AddModal header="New Product Category" inputFields={addCategoryFields} api={API_URL + "categories"} label="Add Category" />
+      <Button onClick={refreshGrid}>Refresh</Button>
+      <div className="ag-theme-alpine" style={{ width: "99%", height: "90vh" }}>
         <AgGridReact
-            ref={gridRef} // Ref for accessing Grid's API
-
-            rowData={rowData} // Row Data for Rows
-
-            columnDefs={columnDefs} // Column Defs for Columns
-            defaultColDef={defaultColDef} // Default Column Properties
-
-            animateRows={true} // Optional - set to 'true' to have rows animate when sorted
-            rowSelection='multiple' // Options - allows click selection of rows
-
-            onCellClicked={cellClickedListener} // Optional - registering for Grid Event
-            />
+          ref={gridRef}
+          rowData={rowData}
+          columnDefs={columnDefs}
+          defaultColDef={true}
+          animateRows={true}
+          rowSelection="single"
+        />
       </div>
     </div>
   );

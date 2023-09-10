@@ -1,0 +1,7 @@
+[
+    {"field": "categoryId", "filter": true, "headerName": "ID", "flex": 1},
+    {"field": "name", "filter": true, "flex": 3},
+    {"field": "unit", "flex": 2},
+    {"field": "gst", "flex": 2},
+    {"field": "description", "flex": 4}
+]

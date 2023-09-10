@@ -1,0 +1,6 @@
+[
+    { "name:": "name", "label": "Name", "type": "text" },
+    { "name:": "unit", "label": "Unit", "type": "text" },
+    { "name:": "gst", "label": "GST (in %)", "type": "text" },
+    { "name:": "description", "label": "Description", "type": "text" }
+]

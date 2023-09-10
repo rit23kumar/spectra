@@ -64,7 +64,7 @@ const BoxedFancy = memo((props) => {
               ></path>
             </svg>
           </Button>
-        </div>
+        </div><br />
         <Footer />
       </main>
     </div>

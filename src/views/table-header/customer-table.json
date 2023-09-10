@@ -1,0 +1,10 @@
+[
+    { "field": "customerId", "filter": true, "flex": 1 },
+    { "field": "name", "flex": 2 },
+    { "field": "openingBalance", "flex": 1 },
+    { "field": "creditLimit", "flex": 1 },
+    { "field": "address", "flex": 1 },
+    { "field": "mobileNumber", "flex": 1 },
+    { "field": "emailId", "flex": 1 },
+    { "field": "remarks", "flex": 4 }
+]

@@ -1,0 +1,8 @@
+[
+    { "name": "name", "label": "Name", "type": "text" },
+    { "name": "productCategory.categoryId", "label": "Category", "type": "select" },
+    { "name": "unitPrice", "label": "Price", "type": "number" },
+    { "name": "stockQuantity", "label": "Quantity", "type": "number" },
+    { "name": "reorderPoint", "label": "Reorder Point", "type": "number" },
+    { "name": "description", "label": "Description", "type": "text" }
+]

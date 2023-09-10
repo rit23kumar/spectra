@@ -67,8 +67,7 @@ const Default = memo((props) => {
         <div className="py-0 conatiner-fluid content-inner mt-n5">
           {/* <DefaultRouter /> */}
           <Outlet />
-        </div>
-        
+        </div><br />
         <Footer />
       </main>
       <SettingOffCanvas />
