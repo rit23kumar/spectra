@@ -1,0 +1,9 @@
+[
+    { "name": "name", "label": "Name", "type": "text", "placeholder":"Customer/Business Name" },
+    { "name": "openingBalance", "isAmount":"true", "label": "Opening Balance", "type": "number", "placeholder":"Any prior balance" },
+    { "name": "creditLimit", "isAmount":"true", "label": "Credit Limit", "type": "number", "placeholder":"Limit for total credit" },
+    { "name": "address", "label": "Address", "type": "text" },
+    { "name": "mobileNumber", "label": "Mobile Number", "type": "number" },
+    { "name": "emailId", "label": "Email Id", "type": "text", "placeholder":"(Optional)" },
+    { "name": "remarks", "label": "Remarks", "type": "text", "placeholder":"(Optional)" }
+]

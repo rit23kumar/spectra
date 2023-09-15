@@ -16,6 +16,7 @@ import Timesheet from '../views/business-pages/timesheet';
 import Payroll from '../views/business-pages/payroll';
 import Earning from '../views/business-pages/earning';
 import Supplier from '../views/business-pages/supplier';
+import PlacedOrders from '../views/business-pages/placed-orders';
 
 
 export const DefaultRouter = [
@@ -42,6 +43,10 @@ export const DefaultRouter = [
             {
                 path: '/sales-order',
                 element: <SalesOrder />
+            },
+            {
+                path: '/placed-orders',
+                element: <PlacedOrders />
             },
             {
                 path: '/payment-received',

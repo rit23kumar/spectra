@@ -12,8 +12,8 @@ import { Button } from "react-bootstrap";
 
 const Items = () => {
   const gridRef = useRef(); // Optional - for accessing Grid's API
-  const [rowData, setRowData] = useState([]); // Set rowData to Array of Objects, one Object per Row
-  const [category, setCategory] = useState([]);
+  const [rowData, setRowData] = useState(); // Set rowData to Array of Objects, one Object per Row
+  const [category, setCategory] = useState([{"categoryId": 0, "name": "No category present"}]);
 
   useEffect(() => {
     fetch(API_URL + "items")
@@ -36,7 +36,7 @@ const Items = () => {
     <div>
       <div id="page-header" style={{'fontSize':'15px', color: 'var(--bs-white)' }}><MdAddShoppingCart /> Product {'>'} Items</div>
       <hr />
-      <AddModal header="New Product Item" inputFields={addItemFields} api={API_URL + "items"} label="Add Item" options={category} />
+      <AddModal header="New Item" inputFields={addItemFields} api={API_URL + "items"} label="Add Item" options={category} />
       <Button onClick={refreshGrid}>Refresh</Button>
       <div className="ag-theme-alpine" style={{ width: "99%", height: "90vh" }}>
         <AgGridReact

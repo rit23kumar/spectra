@@ -30,7 +30,7 @@ const ProductCategory = () => {
     <div>
       <div id="page-header" style={{'fontSize':'15px', color: 'var(--bs-white)' }}><MdCategory /> Product {'>'} Category</div>
       <hr />
-      <AddModal header="New Product Category" inputFields={addCategoryFields} api={API_URL + "categories"} label="Add Category" />
+      <AddModal header="New Category" inputFields={addCategoryFields} api={API_URL + "categories"} label="Add Category" />
       <Button onClick={refreshGrid}>Refresh</Button>
       <div className="ag-theme-alpine" style={{ width: "99%", height: "90vh" }}>
         <AgGridReact
